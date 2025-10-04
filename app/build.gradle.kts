@@ -8,7 +8,7 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.twogisapp"
+        applicationId = "ru.2gishackathon.app04.06"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
