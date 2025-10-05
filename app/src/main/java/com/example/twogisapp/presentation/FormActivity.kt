@@ -53,11 +53,6 @@ class FormActivity : AppCompatActivity() {
 
     private val calendar = Calendar.getInstance()
 
-    override fun finish() {
-        super.finish()
-        overridePendingTransition(0, 0)
-    }
-
     private val viewToDrawableMap = mapOf(
         R.id.ivInvalidDriver to R.drawable.ic_invalid_driver_cat_active,
         R.id.ivBlindPerson to R.drawable.ic_blind_cat_active,
@@ -77,6 +72,16 @@ class FormActivity : AppCompatActivity() {
         setupDatePicker()
         setCatActive(0)
         setupCategory()
+        setOnClickListeners()
+        getRoute()
+    }
+
+    private fun getRoute() {
+        binding.etFromReceived.setText(intent.getStringExtra(ARRIVAL_FROM))
+        binding.etToReceived.setText(intent.getStringExtra(ARRIVAL_TO))
+    }
+
+    private fun setOnClickListeners() {
         binding.btnCancel.setOnClickListener {
             finish()
         }
@@ -84,8 +89,8 @@ class FormActivity : AppCompatActivity() {
             binding.etFromReceived.checkNotValid()
             binding.etToReceived.checkNotValid()
             if (binding.etFromReceived.error != null || binding.etToReceived.error != null) return@setOnClickListener
-            if (binding.tvTime.text == "" || binding.tvTime.text == "Укажите дату вашего выхода") {
-                binding.tvTime.text = "Укажите дату вашего выхода"
+            if (binding.tvTime.text == "" || binding.tvTime.text == TIME_ERROR) {
+                binding.tvTime.text = TIME_ERROR
                 binding.tvTime.setTextColor(
                     ContextCompat.getColor(
                         this,
@@ -106,13 +111,11 @@ class FormActivity : AppCompatActivity() {
             )
             startActivity(intent)
         }
-        binding.etFromReceived.setText(intent.getStringExtra("ARRIVAL_FROM"))
-        binding.etToReceived.setText(intent.getStringExtra("ARRIVAL_TO"))
     }
 
-    fun EditText.checkNotValid() {
+    private fun EditText.checkNotValid() {
         if (this.text.isEmpty()) {
-            this.error = "Введите недостающее значение"
+            this.error = EDIT_TEXT_ERROR
         } else {
             this.error = null
         }
@@ -287,5 +290,18 @@ class FormActivity : AppCompatActivity() {
 
         catElements[activeIndex].setImageResource(activeIcons[activeIndex])
         checkCat = catElements[activeIndex].id
+    }
+
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(0, 0)
+    }
+
+    companion object {
+
+        private const val ARRIVAL_FROM = "ARRIVAL_FROM"
+        private const val ARRIVAL_TO = "ARRIVAL_TO"
+        private const val TIME_ERROR = "Укажите дату вашего выхода"
+        private const val EDIT_TEXT_ERROR = "Введите недостающее значение"
     }
 }
