@@ -16,7 +16,7 @@ https://drive.google.com/file/d/1jiG0DFD6cj6N8Gx3UoJJohULLy6om002/view?usp=shari
 
 </div># 
 
-## ⭐ Команда
+## ⭐ Команда RE: Team illusion
 
 - Максим Карпеев - Teamlead
 - Никита Малютин - Designer
