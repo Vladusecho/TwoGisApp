@@ -5,15 +5,269 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#141414"
     tools:context=".presentation.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
+    <ru.dgis.sdk.map.MapView
+        android:id="@+id/mvMainMap"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:dgis_cameraTargetLat="55.740444"
+        app:dgis_cameraTargetLng="37.619524"
+        app:dgis_cameraZoom="16.0"
+        app:layout_constraintBottom_toTopOf="@id/svFragmentElements"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ru.dgis.sdk.map.ZoomControl
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical" />
+
+    </ru.dgis.sdk.map.MapView>
+
+
+    <ScrollView
+        android:id="@+id/svFragmentElements"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:orientation="vertical"
+        android:paddingTop="5dp"
+        android:paddingBottom="70dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:id="@+id/llFragmentOfMainElements"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#141414"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#222222"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/etFrom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:paddingHorizontal="30dp"
+                        android:textColor="@color/white"
+                        android:paddingVertical="7dp"
+                        android:background="@drawable/back_top_edittext"
+                        android:fontFamily="@font/krub_regular"
+                        android:hint="@string/travel_from"
+                        android:inputType="text"
+                        android:textColorHint="#808080" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"/>
+
+                    <EditText
+                        android:id="@+id/etTo"
+                        android:layout_width="match_parent"
+                        android:paddingVertical="7dp"
+                        android:textColor="@color/white"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:paddingHorizontal="30dp"
+                        android:background="@drawable/back_down_edittext"
+                        android:fontFamily="@font/krub_regular"
+                        android:hint="@string/travel_to"
+                        android:inputType="text"
+                        android:textColorHint="#808080" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/btnVolunteersHelp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/back_for_help_button"
+                    android:fontFamily="@font/krub_bold"
+                    android:gravity="center_horizontal"
+                    android:paddingVertical="10dp"
+                    android:text="@string/volunteers_help"
+                    android:textColor="#328243" />
+
+                <LinearLayout
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/auto_icon"
+                        android:src="@drawable/ic_auto_no_active" />
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/ic_pedestrian"
+                        android:src="@drawable/ic_pedestrian_active" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingHorizontal="10dp"
+                android:layout_marginBottom="80dp"
+                android:background="@drawable/back_for_help"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="20dp"
+                android:paddingVertical="15dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/krub_regular"
+                    android:gravity="center_horizontal"
+                    android:text="@string/help_text"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/tvVolunteersHelp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/back_for_help_button"
+                    android:fontFamily="@font/krub_bold"
+                    android:gravity="center_horizontal"
+                    android:paddingVertical="10dp"
+                    android:text="@string/how_build_riders"
+                    android:textColor="#328243" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/llLowBar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#222222"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="10dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+
+
+        <LinearLayout
+            android:id="@+id/llSearchNav"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/icSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/search_button_low_bar"
+                android:src="@drawable/ic_search_navigation_no_active" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llRideNav"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/icRide"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/ride_button_low_bar"
+                android:src="@drawable/ic_ride_nav_no_active" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llNavigatorNav"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+
+            <ImageView
+                android:id="@+id/icNavigator"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:contentDescription="@string/navigator_button_low_bar"
+                android:src="@drawable/ic_navigator_nav_no_active" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llFriendsNav"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+
+            <ImageView
+                android:id="@+id/icFriends"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:contentDescription="@string/friends_button_low_bar"
+                android:src="@drawable/ic_friends_nav_no_active" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llVolunteersNav"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/icVolunteers"
+                android:layout_width="match_parent"
+                android:layout_height="31.8dp"
+                android:contentDescription="@string/profile_button_low_bar"
+                android:src="@drawable/ic_volunteers_nav_no_active" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llProfileNav"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/icProfiles"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:contentDescription="@string/profile_button_low_bar"
+                android:src="@drawable/ic_profile_nav_no_active" />
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

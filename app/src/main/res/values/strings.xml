@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">TwoGisApp</string>
+    <string name="ride_button_low_bar">ride_button_low_bar</string>
+    <string name="search_button_low_bar">search_button_low_bar</string>
+    <string name="navigator_button_low_bar">navigator_button_low_bar</string>
+    <string name="friends_button_low_bar">friends_button_low_bar</string>
+    <string name="profile_button_low_bar">profile_button_low_bar</string>
+    <string name="help_text">Укажите, откуда и куда вам нужно - мы подскажем удобные маршруты</string>
+    <string name="how_build_riders">Как 2ГИС строит маршруты</string>
+    <string name="volunteers_help">Помощь волонтера</string>
+    <string name="auto_icon">auto_icon</string>
+    <string name="ic_pedestrian">ic_pedestrian</string>
+    <string name="travel_from">Откуда поедем?</string>
+    <string name="travel_to">Куда поедем?</string>
+    <string name="avatar">avatar</string>
+    <string name="from">Откуда:</string>
+    <string name="to">Куда:</string>
 </resources>

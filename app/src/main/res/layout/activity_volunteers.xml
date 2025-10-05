@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#141414"
+    tools:context=".presentation.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#222222"
+        android:gravity="end"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp"
+        android:paddingTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/ic_alphabet_sort" />
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/ic_time_sort" />
+
+    </LinearLayout>
+
+    <SearchView
+        android:id="@+id/svSearchForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="15dp"
+        android:iconifiedByDefault="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvForms"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/llLowBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/svSearchForm"
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/back_form" />
+
+    <LinearLayout
+        android:id="@+id/llLowBar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#222222"
+        android:baselineAligned="false"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+
+        <LinearLayout
+            android:id="@+id/llSearchNav"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/icSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/search_button_low_bar"
+                android:src="@drawable/ic_search_navigation_no_active" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llRideNav"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/icRide"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/ride_button_low_bar"
+                android:src="@drawable/ic_ride_nav_no_active" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llNavigatorNav"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+
+            <ImageView
+                android:id="@+id/icNavigator"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:contentDescription="@string/navigator_button_low_bar"
+                android:src="@drawable/ic_navigator_nav_no_active" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llFriendsNav"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+
+            <ImageView
+                android:id="@+id/icFriends"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:contentDescription="@string/friends_button_low_bar"
+                android:src="@drawable/ic_friends_nav_no_active" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llVolunteersNav"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/icVolunteers"
+                android:layout_width="match_parent"
+                android:layout_height="31.8dp"
+                android:contentDescription="@string/profile_button_low_bar"
+                android:src="@drawable/ic_volunteers_nav_no_active" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llProfileNav"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/icProfiles"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:contentDescription="@string/profile_button_low_bar"
+                android:src="@drawable/ic_profile_nav_no_active" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

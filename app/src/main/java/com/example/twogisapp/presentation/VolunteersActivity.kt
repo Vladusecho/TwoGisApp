@@ -2,15 +2,20 @@ package com.example.twogisapp.presentation
 
 import android.content.Intent
 import android.os.Bundle
-import ru.dgis.sdk.map.Map
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.twogisapp.R
-import com.example.twogisapp.databinding.ActivityMainBinding
+import com.example.twogisapp.databinding.ActivityVolunteersBinding
+import com.example.twogisapp.domain.entities.Form
+import com.example.twogisapp.domain.entities.Request
 
-class MainActivity : AppCompatActivity() {
+class VolunteersActivity : AppCompatActivity() {
+
+    private lateinit var formsAdapter: VolunteersAdapter
 
     private lateinit var navSearch: LinearLayout
     private lateinit var navFriends: LinearLayout
@@ -30,7 +35,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navIcons: List<ImageView>
 
     val binding by lazy {
-        ActivityMainBinding.inflate(layoutInflater)
+        ActivityVolunteersBinding.inflate(layoutInflater)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,13 +44,30 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         initViews()
         setupBottomNavigation()
-        setActiveTab(1)
-        binding.btnVolunteersHelp.setOnClickListener {
-            val intent = Intent(this, FormActivity::class.java)
-            intent.putExtra("ARRIVAL_FROM", binding.etFrom.text.toString())
-            intent.putExtra("ARRIVAL_TO", binding.etTo.text.toString())
+        setActiveTab(4)
+        initRecyclerView()
+    }
+
+    private fun initRecyclerView() {
+        formsAdapter = VolunteersAdapter() { onClick ->
+            val intent = Intent(this, FormInfoActivity::class.java)
             startActivity(intent)
             overridePendingTransition(0, 0)
+        }
+        val newRequest = intent.getSerializableExtra("READY_FORM") as? Request
+        if (newRequest != null) {
+            val newForm = Form(
+                newRequest.date,
+                newRequest.from,
+                newRequest.to,
+                newRequest.category
+            )
+            formsAdapter.items.add(newForm)
+        }
+
+        with(binding.rvForms) {
+            layoutManager = LinearLayoutManager(context)
+            adapter = formsAdapter
         }
     }
 
@@ -70,16 +92,16 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupBottomNavigation() {
         navSearch.setOnClickListener { setActiveTab(0) }
-        navRides.setOnClickListener { setActiveTab(1) }
-        navNavigator.setOnClickListener { setActiveTab(2) }
-        navFriends.setOnClickListener { setActiveTab(3) }
-        navVolunteers.setOnClickListener {
-            setActiveTab(4)
-            val intent = Intent(this, VolunteersActivity::class.java)
+        navRides.setOnClickListener {
+            setActiveTab(1)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             overridePendingTransition(0, 0)
             finish()
         }
+        navNavigator.setOnClickListener { setActiveTab(2) }
+        navFriends.setOnClickListener { setActiveTab(3) }
+        navVolunteers.setOnClickListener { setActiveTab(4) }
         navProfile.setOnClickListener { setActiveTab(5) }
     }
 

@@ -2,15 +2,17 @@ package com.example.twogisapp.presentation
 
 import android.content.Intent
 import android.os.Bundle
-import ru.dgis.sdk.map.Map
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.example.twogisapp.R
-import com.example.twogisapp.databinding.ActivityMainBinding
+import com.example.twogisapp.databinding.ActivityFormBinding
+import com.example.twogisapp.databinding.ActivityFormInfoBinding
 
-class MainActivity : AppCompatActivity() {
+class FormInfoActivity : AppCompatActivity() {
 
     private lateinit var navSearch: LinearLayout
     private lateinit var navFriends: LinearLayout
@@ -30,7 +32,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navIcons: List<ImageView>
 
     val binding by lazy {
-        ActivityMainBinding.inflate(layoutInflater)
+        ActivityFormInfoBinding.inflate(layoutInflater)
+    }
+
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(0, 0)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,14 +46,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         initViews()
         setupBottomNavigation()
-        setActiveTab(1)
-        binding.btnVolunteersHelp.setOnClickListener {
-            val intent = Intent(this, FormActivity::class.java)
-            intent.putExtra("ARRIVAL_FROM", binding.etFrom.text.toString())
-            intent.putExtra("ARRIVAL_TO", binding.etTo.text.toString())
-            startActivity(intent)
-            overridePendingTransition(0, 0)
-        }
+        setActiveTab(4)
     }
 
     private fun initViews() {
