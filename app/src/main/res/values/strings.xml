@@ -23,9 +23,10 @@
     <string name="not_hear_person">not_hear_person</string>
     <string name="not_smart_person">not_smart_person</string>
     <string name="route">Маршрут</string>
-    <string name="choose_date">Выбрать дату...</string>
+    <string name="choose_date">Выбрать дату…</string>
     <string name="comment">Комментарий</string>
-    <string name="users_comment">Напишите свои пожелания...</string>
+    <string name="users_comment">Напишите свои пожелания…</string>
     <string name="back">Назад</string>
     <string name="send">Отправить</string>
+    <string name="request">Запрос #%d</string>
 </resources>

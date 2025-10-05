@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.twogisapp.R
 import com.example.twogisapp.databinding.ActivityFormInfoBinding
 import com.example.twogisapp.domain.entities.Request
+import kotlin.random.Random
 
 class FormInfoActivity : AppCompatActivity() {
 
@@ -46,11 +47,27 @@ class FormInfoActivity : AppCompatActivity() {
         initViews()
         setupBottomNavigation()
         setActiveTab(4)
+        setFieldsFromRequest()
+        setOnClickListeners()
+    }
+
+    private fun setFieldsFromRequest() {
         val requestForm = intent.getSerializableExtra("REQUEST_FORM") as Request
         binding.ivInvalidType.setImageResource(requestForm.category)
         binding.btnSendMessage.setOnClickListener {
             Toast.makeText(this, "Открывается чат...", Toast.LENGTH_LONG).show()
         }
+        binding.tvFrom.text = requestForm.from
+        binding.tvTo.text = requestForm.to
+        binding.tvTime.text = requestForm.date
+        binding.tvComment.text = requestForm.comment
+        binding.requestId.text = getString(
+            R.string.request,
+            Random.nextInt(100000)
+        )
+    }
+
+    private fun setOnClickListeners() {
         binding.btnBuildRoad.setOnClickListener {
             Toast.makeText(this, "Маршрут построился на карте...", Toast.LENGTH_LONG).show()
         }
@@ -60,10 +77,6 @@ class FormInfoActivity : AppCompatActivity() {
         binding.btnAccept.setOnClickListener {
             Toast.makeText(this, "Заявка принята. Хорошего вечера!", Toast.LENGTH_LONG).show()
         }
-        binding.tvFrom.text = requestForm.from
-        binding.tvTo.text = requestForm.to
-        binding.tvTime.text = requestForm.date
-        binding.tvComment.text = requestForm.comment
     }
 
     private fun initViews() {
