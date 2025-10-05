@@ -109,11 +109,6 @@ class FormInfoActivity : AppCompatActivity() {
         navNavigator.setOnClickListener { setActiveTab(2) }
         navFriends.setOnClickListener { setActiveTab(3) }
         navVolunteers.setOnClickListener {
-            setActiveTab(4)
-            val intent = Intent(this, VolunteersActivity::class.java)
-            startActivity(intent)
-            overridePendingTransition(0, 0)
-            finish()
         }
         navProfile.setOnClickListener { setActiveTab(5) }
     }

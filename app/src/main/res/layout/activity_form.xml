@@ -8,6 +8,30 @@
     android:background="#141414"
     tools:context=".presentation.MainActivity">
 
+    <LinearLayout
+        android:id="@+id/llHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#222222"
+        android:gravity="center_horizontal|bottom"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/krub_bold"
+            android:text="@string/request_help"
+            android:textColor="#328243"
+            android:textSize="23sp" />
+
+    </LinearLayout>
+
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -15,40 +39,18 @@
         app:layout_constraintBottom_toBottomOf="@+id/llLowBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/llHeader">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"
+            android:paddingBottom="80dp"
             app:layout_constraintBottom_toTopOf="@+id/llLowBar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
-                android:id="@+id/llHeader"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="#222222"
-                android:gravity="center_horizontal|bottom"
-                android:orientation="horizontal"
-                android:paddingHorizontal="10dp"
-                android:paddingBottom="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/krub_bold"
-                    android:text="@string/request_help"
-                    android:textColor="#328243"
-                    android:textSize="23sp" />
-
-            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/llCategory"
@@ -296,7 +298,8 @@
     <LinearLayout
         android:id="@+id/llLowBar"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
+        android:paddingVertical="15dp"
         android:background="#222222"
         android:baselineAligned="false"
         android:gravity="center_vertical"

@@ -5,5 +5,10 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.TwoGisApp" parent="Base.Theme.TwoGisApp" />
+    <style name="Theme.TwoGisApp" parent="Base.Theme.TwoGisApp">
+
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:fitsSystemWindows">true</item>
+    </style>
 </resources>

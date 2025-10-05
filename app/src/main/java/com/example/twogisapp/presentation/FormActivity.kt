@@ -111,6 +111,7 @@ class FormActivity : AppCompatActivity() {
             )
             startActivity(intent)
             overridePendingTransition(0, 0)
+            finish()
         }
     }
 

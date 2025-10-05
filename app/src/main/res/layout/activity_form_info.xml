@@ -29,12 +29,12 @@
             <LinearLayout
                 android:id="@+id/llHeader"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="15dp"
                 android:background="#222222"
                 android:gravity="center_horizontal|bottom"
                 android:orientation="horizontal"
                 android:paddingHorizontal="10dp"
-                android:paddingBottom="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -272,7 +272,8 @@
     <LinearLayout
         android:id="@+id/llLowBar"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
+        android:paddingVertical="15dp"
         android:background="#222222"
         android:baselineAligned="false"
         android:gravity="center_vertical"

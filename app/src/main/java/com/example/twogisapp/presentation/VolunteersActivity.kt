@@ -58,6 +58,7 @@ class VolunteersActivity : AppCompatActivity() {
             intent.putExtra(REQUEST_FORM, newRequest)
             startActivity(intent)
             overridePendingTransition(0, 0)
+            finish()
         }
         if (newRequest != null) {
             val newForm = Form(
