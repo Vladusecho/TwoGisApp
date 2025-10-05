@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -38,6 +37,10 @@ class VolunteersActivity : AppCompatActivity() {
         ActivityVolunteersBinding.inflate(layoutInflater)
     }
 
+    companion object {
+        private const val REQUEST_FORM = "REQUEST_FORM"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -49,12 +52,13 @@ class VolunteersActivity : AppCompatActivity() {
     }
 
     private fun initRecyclerView() {
-        formsAdapter = VolunteersAdapter() { onClick ->
+        val newRequest = intent.getSerializableExtra("READY_FORM") as? Request
+        formsAdapter = VolunteersAdapter { onClick ->
             val intent = Intent(this, FormInfoActivity::class.java)
+            intent.putExtra(REQUEST_FORM, newRequest)
             startActivity(intent)
             overridePendingTransition(0, 0)
         }
-        val newRequest = intent.getSerializableExtra("READY_FORM") as? Request
         if (newRequest != null) {
             val newForm = Form(
                 newRequest.date,
@@ -86,8 +90,9 @@ class VolunteersActivity : AppCompatActivity() {
         volunteersIcon = binding.icVolunteers
         navigatorIcon = binding.icNavigator
 
-        navItems = listOf(navSearch, navRides, navNavigator, navFriends, navVolunteers,  navProfile)
-        navIcons = listOf(searchIcon, ridesIcon, navigatorIcon, friendsIcon, volunteersIcon,  profileIcon)
+        navItems = listOf(navSearch, navRides, navNavigator, navFriends, navVolunteers, navProfile)
+        navIcons =
+            listOf(searchIcon, ridesIcon, navigatorIcon, friendsIcon, volunteersIcon, profileIcon)
     }
 
     private fun setupBottomNavigation() {

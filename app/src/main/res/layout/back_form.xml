@@ -44,51 +44,60 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:layout_marginEnd="10dp"
-                    android:id="@+id/tvTo"
+                <LinearLayout
+                    android:orientation="vertical"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/krub_regular"
-                    android:text="@string/from"
-                    android:textColor="@color/white" />
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvTo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/krub_regular"
+                        android:text="@string/from"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/tvfrom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/krub_regular"
+                        android:text="@string/to"
+                        android:textColor="@color/white" />
 
 
-                <TextView
-                    android:id="@+id/tvFromReceived"
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_marginStart="15dp"
+                    android:orientation="vertical"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="none"
-                    android:fontFamily="@font/krub_regular"
-                    android:singleLine="false"
-                    android:textColor="@color/white"
-                    tools:text="Ул. Пушкина, д. 18" />
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvToReceived"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/krub_regular"
+                        android:textColor="@color/white"
+                        tools:text="Ул. Пушкина, д. 19" />
+
+                    <TextView
+                        android:id="@+id/tvFromReceived"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="none"
+                        android:fontFamily="@font/krub_regular"
+                        android:singleLine="false"
+                        android:textColor="@color/white"
+                        tools:text="Ул. Пушкина, д. 18" />
+                </LinearLayout>
             </LinearLayout>
 
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/tvfrom"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/krub_regular"
-                    android:text="@string/to"
-                    android:textColor="@color/white" />
-
-                <TextView
-                    android:layout_marginStart="10dp"
-                    android:id="@+id/tvToReceived"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/krub_regular"
-                    android:textColor="@color/white"
-                    tools:text="Ул. Пушкина, д. 19" />
-            </LinearLayout>
 
             <TextView
                 android:id="@+id/tvTime"

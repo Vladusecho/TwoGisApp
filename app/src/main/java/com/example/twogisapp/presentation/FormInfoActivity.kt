@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -11,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.twogisapp.R
 import com.example.twogisapp.databinding.ActivityFormBinding
 import com.example.twogisapp.databinding.ActivityFormInfoBinding
+import com.example.twogisapp.domain.entities.Request
 
 class FormInfoActivity : AppCompatActivity() {
 
@@ -47,6 +49,24 @@ class FormInfoActivity : AppCompatActivity() {
         initViews()
         setupBottomNavigation()
         setActiveTab(4)
+        val requestForm = intent.getSerializableExtra("REQUEST_FORM") as Request
+        binding.ivInvalidType.setImageResource(requestForm.category)
+        binding.btnSendMessage.setOnClickListener {
+            Toast.makeText(this, "Открывается чат...", Toast.LENGTH_LONG).show()
+        }
+        binding.btnBuildRoad.setOnClickListener {
+            Toast.makeText(this, "Маршрут построился на карте...", Toast.LENGTH_LONG).show()
+        }
+        binding.btnCancel.setOnClickListener {
+            finish()
+        }
+        binding.btnAccept.setOnClickListener {
+            Toast.makeText(this, "Заявка принята. Хорошего вечера!", Toast.LENGTH_LONG).show()
+        }
+        binding.tvFrom.text = requestForm.from
+        binding.tvTo.text = requestForm.to
+        binding.tvTime.text = requestForm.date
+        binding.tvComment.text = requestForm.comment
     }
 
     private fun initViews() {
@@ -70,7 +90,12 @@ class FormInfoActivity : AppCompatActivity() {
 
     private fun setupBottomNavigation() {
         navSearch.setOnClickListener { setActiveTab(0) }
-        navRides.setOnClickListener { setActiveTab(1) }
+        navRides.setOnClickListener {
+            setActiveTab(1)
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(0, 0)
+            finish()}
         navNavigator.setOnClickListener { setActiveTab(2) }
         navFriends.setOnClickListener { setActiveTab(3) }
         navVolunteers.setOnClickListener {
