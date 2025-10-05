@@ -2,7 +2,6 @@ package com.example.twogisapp.presentation
 
 import android.content.Intent
 import android.os.Bundle
-import ru.dgis.sdk.map.Map
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
@@ -33,6 +32,11 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
+    companion object {
+        private const val ARRIVAL_FROM = "ARRIVAL_FROM"
+        private const val ARRIVAL_TO = "ARRIVAL_TO"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -40,10 +44,14 @@ class MainActivity : AppCompatActivity() {
         initViews()
         setupBottomNavigation()
         setActiveTab(1)
+        setOnClickListeners()
+    }
+
+    private fun setOnClickListeners() {
         binding.btnVolunteersHelp.setOnClickListener {
             val intent = Intent(this, FormActivity::class.java)
-            intent.putExtra("ARRIVAL_FROM", binding.etFrom.text.toString())
-            intent.putExtra("ARRIVAL_TO", binding.etTo.text.toString())
+            intent.putExtra(ARRIVAL_FROM, binding.etFrom.text.toString())
+            intent.putExtra(ARRIVAL_TO, binding.etTo.text.toString())
             startActivity(intent)
             overridePendingTransition(0, 0)
         }
@@ -64,8 +72,9 @@ class MainActivity : AppCompatActivity() {
         volunteersIcon = binding.icVolunteers
         navigatorIcon = binding.icNavigator
 
-        navItems = listOf(navSearch, navRides, navNavigator, navFriends, navVolunteers,  navProfile)
-        navIcons = listOf(searchIcon, ridesIcon, navigatorIcon, friendsIcon, volunteersIcon,  profileIcon)
+        navItems = listOf(navSearch, navRides, navNavigator, navFriends, navVolunteers, navProfile)
+        navIcons =
+            listOf(searchIcon, ridesIcon, navigatorIcon, friendsIcon, volunteersIcon, profileIcon)
     }
 
     private fun setupBottomNavigation() {

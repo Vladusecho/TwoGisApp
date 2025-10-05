@@ -45,12 +45,12 @@
 
 
             <LinearLayout
-                android:paddingHorizontal="20dp"
-                android:paddingVertical="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#222222"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="15dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -62,31 +62,31 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:autofillHints=""
-                        android:paddingHorizontal="30dp"
-                        android:textColor="@color/white"
-                        android:paddingVertical="7dp"
                         android:background="@drawable/back_top_edittext"
                         android:fontFamily="@font/krub_regular"
                         android:hint="@string/travel_from"
                         android:inputType="text"
+                        android:paddingHorizontal="30dp"
+                        android:paddingVertical="7dp"
+                        android:textColor="@color/white"
                         android:textColorHint="#808080" />
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"/>
+                        android:layout_height="1dp" />
 
                     <EditText
                         android:id="@+id/etTo"
                         android:layout_width="match_parent"
-                        android:paddingVertical="7dp"
-                        android:textColor="@color/white"
                         android:layout_height="wrap_content"
                         android:autofillHints=""
-                        android:paddingHorizontal="30dp"
                         android:background="@drawable/back_down_edittext"
                         android:fontFamily="@font/krub_regular"
                         android:hint="@string/travel_to"
                         android:inputType="text"
+                        android:paddingHorizontal="30dp"
+                        android:paddingVertical="7dp"
+                        android:textColor="@color/white"
                         android:textColorHint="#808080" />
                 </LinearLayout>
 
@@ -103,9 +103,9 @@
                     android:textColor="#328243" />
 
                 <LinearLayout
-                    android:layout_marginTop="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
+                    android:layout_marginTop="15dp"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -125,12 +125,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
-                android:paddingHorizontal="10dp"
                 android:layout_marginBottom="80dp"
                 android:background="@drawable/back_for_help"
                 android:orientation="vertical"
-                android:layout_marginHorizontal="20dp"
+                android:paddingHorizontal="10dp"
                 android:paddingVertical="15dp">
 
                 <TextView
@@ -165,11 +165,10 @@
         android:layout_height="70dp"
         android:background="#222222"
         android:baselineAligned="false"
-        android:orientation="horizontal"
         android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:paddingHorizontal="10dp"
         app:layout_constraintBottom_toBottomOf="parent">
-
 
 
         <LinearLayout
