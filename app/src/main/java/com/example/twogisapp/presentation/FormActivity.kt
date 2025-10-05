@@ -3,20 +3,16 @@ package com.example.twogisapp.presentation
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Intent
-import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.VectorDrawable
 import android.os.Bundle
-import android.text.Editable
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.core.content.ContextCompat
 import com.example.twogisapp.R
 import com.example.twogisapp.databinding.ActivityFormBinding
-import com.example.twogisapp.databinding.ActivityMainBinding
 import com.example.twogisapp.domain.entities.Request
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -85,18 +81,41 @@ class FormActivity : AppCompatActivity() {
             finish()
         }
         binding.btnSendform.setOnClickListener { l ->
+            binding.etFromReceived.checkNotValid()
+            binding.etToReceived.checkNotValid()
+            if (binding.etFromReceived.error != null || binding.etToReceived.error != null) return@setOnClickListener
+            if (binding.tvTime.text == "" || binding.tvTime.text == "Укажите дату вашего выхода") {
+                binding.tvTime.text = "Укажите дату вашего выхода"
+                binding.tvTime.setTextColor(
+                    ContextCompat.getColor(
+                        this,
+                        android.R.color.holo_red_light
+                    )
+                )
+                return@setOnClickListener
+            }
             val intent = Intent(this, VolunteersActivity::class.java)
-            intent.putExtra("READY_FORM", Request(
-                viewToDrawableMap[checkCat]!!,
-                binding.etFromReceived.text.toString(),
-                binding.etToReceived.text.toString(),
-                binding.tvTime.text.toString(),
-                binding.etComment.text.toString()
-            ))
+            intent.putExtra(
+                "READY_FORM", Request(
+                    viewToDrawableMap[checkCat]!!,
+                    binding.etFromReceived.text.toString(),
+                    binding.etToReceived.text.toString(),
+                    binding.tvTime.text.toString(),
+                    binding.etComment.text.toString()
+                )
+            )
             startActivity(intent)
         }
         binding.etFromReceived.setText(intent.getStringExtra("ARRIVAL_FROM"))
         binding.etToReceived.setText(intent.getStringExtra("ARRIVAL_TO"))
+    }
+
+    fun EditText.checkNotValid() {
+        if (this.text.isEmpty()) {
+            this.error = "Введите недостающее значение"
+        } else {
+            this.error = null
+        }
     }
 
     private fun setupDatePicker() {
@@ -117,6 +136,7 @@ class FormActivity : AppCompatActivity() {
             calendar.get(Calendar.MONTH),
             calendar.get(Calendar.DAY_OF_MONTH)
         )
+        datePicker.datePicker.minDate = System.currentTimeMillis() - 1000
         datePicker.show()
     }
 
@@ -137,6 +157,7 @@ class FormActivity : AppCompatActivity() {
     }
 
     private fun updateDateTimeInEditText() {
+        binding.tvTime.setTextColor(ContextCompat.getColor(this, android.R.color.white))
         val dateFormat = SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.getDefault())
         binding.tvTime.text = dateFormat.format(calendar.time)
 
@@ -164,10 +185,17 @@ class FormActivity : AppCompatActivity() {
         notHearPersonIcon = binding.ivNotHear
         notSmartPersonIcon = binding.ivNotSmartPerson
 
-        catElements = listOf(invalidDriverIcon, blindPersonIcon, oldPersonIcon, notHearPersonIcon, notSmartPersonIcon)
+        catElements = listOf(
+            invalidDriverIcon,
+            blindPersonIcon,
+            oldPersonIcon,
+            notHearPersonIcon,
+            notSmartPersonIcon
+        )
 
-        navItems = listOf(navSearch, navRides, navNavigator, navFriends, navVolunteers,  navProfile)
-        navIcons = listOf(searchIcon, ridesIcon, navigatorIcon, friendsIcon, volunteersIcon,  profileIcon)
+        navItems = listOf(navSearch, navRides, navNavigator, navFriends, navVolunteers, navProfile)
+        navIcons =
+            listOf(searchIcon, ridesIcon, navigatorIcon, friendsIcon, volunteersIcon, profileIcon)
     }
 
     private fun setupBottomNavigation() {

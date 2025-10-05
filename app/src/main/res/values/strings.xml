@@ -15,4 +15,17 @@
     <string name="avatar">avatar</string>
     <string name="from">Откуда:</string>
     <string name="to">Куда:</string>
+    <string name="request_help">Запрос помощи волонтера</string>
+    <string name="user_category">Категория пользователя</string>
+    <string name="invalid_driver">invalid_driver</string>
+    <string name="blind_person">blind_person</string>
+    <string name="old_man">old_man</string>
+    <string name="not_hear_person">not_hear_person</string>
+    <string name="not_smart_person">not_smart_person</string>
+    <string name="route">Маршрут</string>
+    <string name="choose_date">Выбрать дату...</string>
+    <string name="comment">Комментарий</string>
+    <string name="users_comment">Напишите свои пожелания...</string>
+    <string name="back">Назад</string>
+    <string name="send">Отправить</string>
 </resources>

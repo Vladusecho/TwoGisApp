@@ -44,7 +44,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/krub_bold"
-                    android:text="Запрос помощи волонтера"
+                    android:text="@string/request_help"
                     android:textColor="#328243"
                     android:textSize="23sp" />
 
@@ -68,7 +68,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/krub_regular"
-                    android:text="Категория пользователя"
+                    android:text="@string/user_category"
                     android:textColor="#328243"
                     android:textSize="20sp" />
 
@@ -82,7 +82,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:contentDescription="invalid_driver"
+                        android:contentDescription="@string/invalid_driver"
                         android:src="@drawable/ic_invalid_driver_cat" />
 
                     <ImageView
@@ -90,7 +90,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:contentDescription="blind_person"
+                        android:contentDescription="@string/blind_person"
                         android:src="@drawable/ic_blind_cat" />
 
                     <ImageView
@@ -98,7 +98,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:contentDescription="old_man"
+                        android:contentDescription="@string/old_man"
                         android:src="@drawable/ic_old_cat" />
 
                     <ImageView
@@ -106,7 +106,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:contentDescription="not_hear_person"
+                        android:contentDescription="@string/not_hear_person"
                         android:src="@drawable/ic_not_hear_cat" />
 
 
@@ -115,7 +115,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:contentDescription="not_smart_person"
+                        android:contentDescription="@string/not_smart_person"
                         android:src="@drawable/ic_not_smart_cat" />
 
 
@@ -141,7 +141,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/krub_regular"
-                    android:text="Маршрут"
+                    android:text="@string/route"
                     android:textColor="#328243"
                     android:textSize="20sp" />
 
@@ -201,15 +201,15 @@
                     android:fontFamily="@font/krub_bold"
                     android:gravity="center_horizontal"
                     android:paddingVertical="10dp"
-                    android:text="Выбрать дату..."
+                    android:text="@string/choose_date"
                     android:textColor="#328243" />
 
                 <TextView
                     android:id="@+id/tvTime"
-                    android:layout_marginTop="16dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="16dp"
                     android:fontFamily="@font/krub_regular"
                     android:textColor="@color/white" />
 
@@ -233,7 +233,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/krub_regular"
-                    android:text="Комментарий"
+                    android:text="@string/comment"
                     android:textColor="#328243"
                     android:textSize="20sp" />
 
@@ -244,7 +244,7 @@
                     android:autofillHints=""
                     android:background="@drawable/back_for_help_button"
                     android:fontFamily="@font/krub_regular"
-                    android:hint="Напишите свои пожелания..."
+                    android:hint="@string/users_comment"
                     android:inputType="text"
                     android:paddingHorizontal="30dp"
                     android:paddingVertical="7dp"
@@ -255,38 +255,38 @@
             </LinearLayout>
 
             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal"
                 android:paddingHorizontal="10dp"
                 android:paddingTop="4dp"
-                android:paddingBottom="16dp"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="100dp">
+                android:paddingBottom="16dp">
 
                 <TextView
-                    android:layout_marginEnd="20dp"
                     android:id="@+id/btnCancel"
                     android:layout_width="0dp"
-                    android:layout_weight="2"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="2"
                     android:background="@drawable/back_for_help_button"
                     android:fontFamily="@font/krub_bold"
                     android:gravity="center"
                     android:paddingVertical="10dp"
-                    android:text="Назад"
+                    android:text="@string/back"
                     android:textColor="#328243" />
 
                 <TextView
-                    android:gravity="center_horizontal"
                     android:id="@+id/btnSendform"
                     android:layout_width="0dp"
-                    android:layout_weight="2"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:layout_weight="2"
                     android:background="@drawable/back_for_help_button"
                     android:fontFamily="@font/krub_bold"
+                    android:gravity="center_horizontal"
                     android:paddingVertical="10dp"
-                    android:text="Отправить"
+                    android:text="@string/send"
                     android:textColor="#328243" />
 
             </LinearLayout>
